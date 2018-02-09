@@ -1,0 +1,31 @@
+{
+  "name": "clifer",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/clifer.js",
+  "keywords": [
+    "command line",
+    "file transfer",
+    "p2p",
+    "direct connect"
+  ],
+  "author": "Kevin Gravier <kevin@mrkmg.com>",
+  "license": "MIT",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "babel": "babel src --out-dir build",
+    "pkg": "pkg --out-path bin/ -t node9-linux-x64,node9-macos-x64,node9-win-x64 build/clifer.js",
+    "all": "npm run babel && npm run pkg"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "pkg": "^4.3.0"
+  },
+  "dependencies": {
+    "shortid": "^2.2.8",
+    "streambeans": "^1.4.1",
+    "yargs": "^10.1.2"
+  }
+}
