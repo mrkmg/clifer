@@ -30,6 +30,13 @@ export async function receive(intermediaryHost, intermediaryPort, code, fileStre
     const senderConnection = createConnection({host, port}, () => {
         connectStreams(senderConnection, fileStream);
     });
+    senderConnection.on("error", (e) => {
+        if (e.code === "ECONNREFUSED") {
+            console.error("Could not connect to peer.");
+        } else {
+            console.error(e.message);
+        }
+    });
 }
 
 async function getReceiveDetails(host, port, code) {
